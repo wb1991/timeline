@@ -20,7 +20,7 @@ public class Test {
     private static Logger logger = Logger.getLogger(TestMyBatis.class);  
     private ApplicationContext ac = null;  
     @Resource  
-    private IUserService userService = null;  
+    private IUserService userService;  
   
   @Before  
   public void before() {  
