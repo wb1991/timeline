@@ -24,7 +24,7 @@ public class Test {
   
   @Before  
   public void before() {  
-      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
+      ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");  
       userService = (IUserService) ac.getBean("userService");  
   }  
   
