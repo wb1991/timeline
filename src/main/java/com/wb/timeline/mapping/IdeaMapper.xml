@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wb.timeline.dao.IUserDao" >
-  <resultMap id="BaseResultMap" type="com.wb.timeline.domain.User" >
+<mapper namespace="com.wb.timeline.dao.IIdeaDao" >
+  <resultMap id="BaseResultMap" type="com.wb.timeline.domain.Idea" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR"/> 
-    <result column="age" property="age" jdbcType="INTEGER" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="modify_date" property="modifyDate" jdbcType="DATE" />
-    <result column="last_login_date" property="lastLoginDate" jdbcType="DATE" />
-    <result column="is_enable" property="isEnable" jdbcType="BOOLEAN" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR"/> 
   </resultMap>
   <sql id="Base_Column_List" >
-    id, user_name, password, age, email, create_date, modify_date, last_login_date,is_enable
+    id, title, content, create_date, modify_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from xx_user
+    from xx_idea
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from xx_user
+    delete from xx_idea
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wb.timeline.domain.User" >
-    insert into xx_user (id, user_name, password, 
+    insert into xx_idea (id, user_name, password, 
       age)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.wb.timeline.domain.User" >
-    insert into xx_user
+    insert into xx_idea
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -63,7 +60,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.wb.timeline.domain.User" >
-    update xx_user
+    update xx_idea
     <set >
       <if test="userName != null" >
         user_name = #{userName,jdbcType=VARCHAR},
@@ -78,7 +75,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wb.timeline.domain.User" >
-    update xx_user
+    update xx_idea
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER}
