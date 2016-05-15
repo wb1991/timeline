@@ -31,4 +31,9 @@ public class IdeaController {
         model.addAttribute("idea", idea);  
         return "idea/showIdea";  
     }  
+    
+    @RequestMapping("/publish")  
+    public String publish(HttpServletRequest request,Model model){  
+        return "idea/publish";  
+    }  
 }  

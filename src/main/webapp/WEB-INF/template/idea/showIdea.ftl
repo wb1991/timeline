@@ -5,6 +5,6 @@
 <title>用户</title>
 </head>
 <body>
-    ${fssdf.title}
+    ${idea.title}
 </body>
 </html>
