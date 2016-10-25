@@ -33,7 +33,7 @@ public class IdeaController {
     }  
     
     @RequestMapping("/publish")  
-    public String publish(HttpServletRequest request,Model model){  
+    public String publish(HttpServletRequest request, Model model){  
         return "idea/publish";  
     }  
 }  
